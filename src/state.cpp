@@ -184,7 +184,7 @@ void State::OpenShop() {
 }
 
 void State::UpdateShop() {
-	if (!IsMouseButtonReleased(MOUSE_BUTTON_LEFT)) return;
+	if (!IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) return;
 
 	if (GetMouseY()>Settings::HEIGHTf*0.5) {
 		player.maxAmmo += 1;

@@ -3,11 +3,11 @@
 #include <cmath>
 
 namespace Settings {
-	inline constexpr int WIDTH = 720;
-	inline constexpr int HEIGHT = 1280;
+	inline constexpr int WIDTH = 1080;
+	inline constexpr int HEIGHT = 1920;
 
-	inline constexpr float WIDTHf = 720;
-	inline constexpr float HEIGHTf = 1280;
+	inline constexpr float WIDTHf = 1080;
+	inline constexpr float HEIGHTf = 1920;
 
 	inline constexpr float TRANSITION_TIME = 100;
 
