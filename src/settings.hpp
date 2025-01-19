@@ -17,4 +17,5 @@ namespace Settings {
 	inline constexpr float FREEZE_PROJECTILES_COOLDOWN = 180;
 
 	inline constexpr float START_FREEZE = 0.1;
+	inline constexpr float MAX_FREEZE = 0.7;
 }

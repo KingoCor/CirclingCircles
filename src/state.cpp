@@ -173,7 +173,16 @@ void State::OpenShop() {
 
 	if (GetRandomValue(0, 1)==1) {
 		this->isUpgrading = true;
-		this->upgradingIndex = GetRandomValue(0,player.ammo.size()-1);
+
+		std::vector<int> upgradableIndexes;
+		for (int i=0; i<player.ammo.size(); i++) {
+			if (player.ammo.at(i)->IsUpgradable())
+				upgradableIndexes.push_back(i);
+		}
+
+		this->upgradingIndex = upgradableIndexes.at(
+			GetRandomValue(0,upgradableIndexes.size()-1)
+		);
 	} else {
 		switch (GetRandomValue(0, 1)) {
 			case 0: shopItem = std::make_unique<Game::DefaultProjectile>(0, 0, 5, (Vector2){0,0}, 1); break;

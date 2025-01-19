@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include <raylib.h>
 
 using namespace Game;
 
@@ -46,6 +47,8 @@ void Enemy::Draw() {
 	else if (hp<th1) current = ColorLerp(start, half, hp/th1);
 	else if (hp<th2) current = ColorLerp(half, end, (hp-th1)/(th2-th1));
 	else             current = BLACK;
+
+	if (freeze>0.0) current = ColorLerp(current, BLUE, freeze);
 
 	DrawCircle(collider.x, collider.y, collider.r, current);
 }

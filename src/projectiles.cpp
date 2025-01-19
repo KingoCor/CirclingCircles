@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include "settings.hpp"
 
 using namespace Game;
 
@@ -34,7 +35,7 @@ void DefaultProjectile::Draw() {
 }
 
 void DefaultProjectile::Upgrade() {
-	this->damage*=2;
+	this->damage+=2;
 }
 
 std::unique_ptr<Projectile> DefaultProjectile::Shoot(float rotation) {
@@ -81,7 +82,14 @@ void FreezeProjectile::Draw() {
 }
 
 void FreezeProjectile::Upgrade() {
-	this->freeze*=1.7;
+	freeze*=1.20;
+	if (freeze>Settings::MAX_FREEZE) {
+		freeze = Settings::MAX_FREEZE;
+	}
+}
+
+bool FreezeProjectile::IsUpgradable() {
+	return freeze<Settings::MAX_FREEZE;
 }
 
 std::unique_ptr<Projectile> FreezeProjectile::Shoot(float rotation) {

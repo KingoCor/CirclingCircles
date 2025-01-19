@@ -62,6 +62,7 @@ namespace Game {
 			virtual float getCooldown() { return 0; }
 			bool TickTimer();
 			virtual void Upgrade() {}
+			virtual bool IsUpgradable() { return true; }
 			virtual std::unique_ptr<Projectile> Shoot(float rotation) { return std::make_unique<Projectile>(); }
 			virtual bool DealDamage(std::list<Enemy> &enemies) { return false; }
 	};
@@ -99,6 +100,7 @@ namespace Game {
 
 			float getCooldown() override { return Settings::FREEZE_PROJECTILES_COOLDOWN; }
 			void Upgrade() override;
+			bool IsUpgradable() override;
 			std::unique_ptr<Projectile> Shoot(float rotation) override;
 			bool DealDamage(std::list<Enemy> &enemies) override;
 	};
